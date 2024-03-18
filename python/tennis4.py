@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
+DEUCE = "Deuce"
+
 class TennisGame4:
-    def __init__(self, player1Name, player2Name):
+
+    def __init__(self, player1Name, player2Name, lang):
         self.server = player1Name
         self.receiver = player2Name
         self.serverScore = 0
@@ -58,7 +61,7 @@ class Deuce:
 
     def getResult(self):
         if (self.game.isDeuce()):
-            return TennisResult("Deuce", "")
+            return TennisResult(DEUCE, "")
         return self.nextResult.getResult()
 
 
@@ -69,7 +72,7 @@ class GameServer:
 
     def getResult(self):
         if (self.game.serverHasWon()):
-            return TennisResult("Win for " + self.game.server, "")
+            return TennisResult("Victoire pour " + self.game.server, "")
         return self.nextResult.getResult()
 
 
@@ -80,7 +83,7 @@ class GameReceiver:
 
     def getResult(self):
         if (self.game.receiverHasWon()):
-            return TennisResult("Win for " + self.game.receiver, "")
+            return TennisResult("Victoire pour " + self.game.receiver, "")
         return self.nextResult.getResult()
 
 
